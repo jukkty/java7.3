@@ -7,7 +7,25 @@
     <groupId>ru.netology</groupId>
     <artifactId>homework73</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <configLocation>C:\Users\dimai\IdeaProjects\homework73\checkstyle.xml</configLocation>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -89,6 +107,22 @@
                 <executions>
                     <execution>
                         <id>spotbugsCheck</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <configLocation>C:\Users\dimai\IdeaProjects\homework73\checkstyle.xml</configLocation>
+                </configuration>
+                <executions>
+                    <execution>
                         <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
